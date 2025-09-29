@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,5 +91,34 @@ public class Internacao {
         this.status = "Internado";
         internacaoAtiva.add(this);
     }
-
+//verifica se o quarto está ocupado, true se tiver internação ativa quarto
+    public boolean verificarOcupacao(int numeroQuarto){
+        for(Internacao internacao : internacaoAtiva){
+            if (internacao.getQuarto() == numeroQuarto){
+                return true;
+            }
+        }
+        return false;
+    }
+//verifica se tem internação ativa, se tiver internação ativa, ele finaliza 
+    public void fim_internacao() {
+        if (!"Internado".equals(this.status)){
+            System.out.println("A internação não está ativa.");
+        }
+        this.status = "Finalizado.";
+        this.data_Saida = new Date();
+        internacaoAtiva.remove(this);
+        System.out.println("Internaçãodo paciente" + this.paciente.getNome() + "Finalizado");
+    } 
+//verifica se tem internação ativa, se tiver internação ativa, ele cancela 
+    public void cancelar_internacao(){
+        if(!"Internação".equals(this.status)){
+            System.out.println("Esta internação não está ativa.");
+            return;
+        }
+        this.status = "Cancelada";
+        internacaoAtiva.remove(this);
+        System.out.println("Internação do paciente" + this.paciente.getNome() + "Cancelada");
+    }
 }
+

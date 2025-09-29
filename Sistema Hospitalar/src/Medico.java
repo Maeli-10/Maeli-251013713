@@ -61,5 +61,31 @@ public class Medico {
         this.valor_Consulta = valor_Consulta;
         this.agendadeHorarios = new ArrayList<>();
     }
+    
+//adiciona horario na lista de horarios    
+public void adicionarHorario(Date horario){
 
+    boolean disponilidade = disponilidade(horario);
+    if (disponilidade) {
+        this.agendadeHorarios.add(horario);
+        System.out.println("Horario marcado para:" + horario); 
+    } else{
+        System.out.println("O horário está ocupado.");
+    }
+   
+}
+
+// verifica se o horario está vazio
+public boolean disponilidade(Date horario){
+    for(Date horario_Agendado : this.agendadeHorarios){
+        if (horario_Agendado.equals(horario)){
+            return false; 
+        }
+    }
+    return true;
+}
+//remove horario da lista 
+public void removerHorario(Date horario){
+    this.agendadeHorarios.remove(horario);
+}
 }

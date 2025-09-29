@@ -81,6 +81,27 @@ public class Consulta {
         this.diagnostico = diagnostico;
     }
 
-    
+//ver se tem consulta marcada, se tiver ele cancela
+public void cancelarConsulta(){
+    if (!"Agendada".equals(this.status)){
+        System.out.println("Consulta não está marcada, então não pode ser cancelada" );
+        return;
+    } 
+    this.status = "Cancelada";
+
+    if (this.medico != null) {
+        this.medico.removerHorario(this.dataHora);
+    }
+    System.out.println("Consulta cancelada");
+}
+
+// calcula o preço da consulta
+public double calcularPreco(){
+    if (this.medico == null ||this.paciente == null){
+        return 0.0;
+    }
+    double custoBase = this.medico.getValor_Consulta();
+    return this.paciente.valor_total_Consulta(custoBase);
+} 
 
 }

@@ -50,7 +50,7 @@ public class Paciente {
     public Paciente(){
 
     }   
-     
+
     public Paciente(String nome, int idade, String cpf, List<Consulta> historico_Consulta,
             List<Internacao> historico_Internacoes) {
         this.nome = nome;
@@ -60,4 +60,17 @@ public class Paciente {
         this.historico_Internacoes = historico_Internacoes;
     }
 
-}
+    public double valor_total_Consulta(double custoBase){
+        return custoBase;
+    }
+
+    //adiciona a consulta ao historico de consultas do paciente
+    public void adicionar_Consulta(Consulta consulta){
+        if (consulta != null){
+            this.historico_Consulta.add(consulta);
+            System.out.println("Consulta adicionada ao histórico do paciente" + this.getNome());
+        }
+        }
+      
+
+}    
