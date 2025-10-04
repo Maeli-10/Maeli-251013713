@@ -1,4 +1,5 @@
-import java.sql.Date;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class Medico {
     private String crm;
     private String especialidade;
     private double valor_Consulta;
-    private List<Date> agendadeHorarios;
+    private List<LocalDateTime> agendadeHorarios;
 
 
     public String getNome() {
@@ -42,11 +43,11 @@ public class Medico {
         this.valor_Consulta = valor_Consulta;
     }
 
-    public List<Date> getAgendadeHorarios() {
+    public List<LocalDateTime> getAgendadeHorarios() {
         return agendadeHorarios;
     }
 
-    public void setAgendadeHorarios(List<Date> agendadeHorarios) {
+    public void setAgendadeHorarios(List<LocalDateTime> agendadeHorarios) {
         this.agendadeHorarios = agendadeHorarios;
     }
 
@@ -54,7 +55,7 @@ public class Medico {
 
     }
 
-    public Medico(String nome, String crm, String especialidade, double valor_Consulta, List<Date> agendadeHorarios) {
+    public Medico(String nome, String crm, String especialidade, double valor_Consulta, List<LocalDateTime> agendadeHorarios) {
         this.nome = nome;
         this.crm = crm;
         this.especialidade = especialidade;
@@ -63,7 +64,7 @@ public class Medico {
     }
     
 //adiciona horario na lista de horarios    
-public void adicionarHorario(Date horario){
+public void adicionarHorario(LocalDateTime horario){
 
     boolean disponilidade = disponilidade(horario);
     if (disponilidade) {
@@ -76,8 +77,8 @@ public void adicionarHorario(Date horario){
 }
 
 // verifica se o horario está vazio
-public boolean disponilidade(Date horario){
-    for(Date horario_Agendado : this.agendadeHorarios){
+public boolean disponilidade(LocalDateTime horario){
+    for(LocalDateTime horario_Agendado : this.agendadeHorarios){
         if (horario_Agendado.equals(horario)){
             return false; 
         }
@@ -85,7 +86,7 @@ public boolean disponilidade(Date horario){
     return true;
 }
 //remove horario da lista 
-public void removerHorario(Date horario){
-    this.agendadeHorarios.remove(horario);
+public void removerHorario(LocalDateTime dataHora){
+    this.agendadeHorarios.remove(dataHora);
 }
 }

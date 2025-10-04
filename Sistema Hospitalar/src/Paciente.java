@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Paciente {
@@ -47,30 +48,36 @@ public class Paciente {
         this.historico_Internacoes = historico_Internacoes;
     }
 
-    public Paciente(){
+    public Paciente() {
 
-    }   
+    }
 
-    public Paciente(String nome, int idade, String cpf, List<Consulta> historico_Consulta,
-            List<Internacao> historico_Internacoes) {
+    public Paciente(String nome, int idade, String cpf) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
-        this.historico_Consulta = historico_Consulta;
-        this.historico_Internacoes = historico_Internacoes;
+        this.historico_Consulta = new ArrayList<>();
+        this.historico_Internacoes = new ArrayList<>();
     }
 
-    public double valor_total_Consulta(double custoBase){
+    public double valor_total_Consulta(double custoBase) {
         return custoBase;
     }
 
-    //adiciona a consulta ao historico de consultas do paciente
-    public void adicionar_Consulta(Consulta consulta){
-        if (consulta != null){
+    // adiciona a consulta ao historico de consultas do paciente
+    public void adicionar_Consulta(Consulta consulta) {
+        if (consulta != null) {
             this.historico_Consulta.add(consulta);
             System.out.println("Consulta adicionada ao histórico do paciente" + this.getNome());
         }
-        }
-      
+    }
 
-}    
+    public String toCsvString() {
+        return getNome() + "," + getCpf() + "," + getIdade() + ",COMUM,N/A";
+    }
+
+    public boolean temPlano(String nomePlano) {
+        return false;
+    }
+
+}

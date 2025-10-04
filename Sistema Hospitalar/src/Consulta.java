@@ -1,10 +1,11 @@
-import java.sql.Date;
+
+import java.time.LocalDateTime;
 
 public class Consulta {
 
     private Paciente paciente;
     private Medico medico;
-    private Date dataHora;
+    private LocalDateTime dataHora;
     private String local;
     private String status;
     private String prescriacao;
@@ -26,11 +27,11 @@ public class Consulta {
         this.medico = medico;
     }
 
-    public Date getDataHora() {
+    public LocalDateTime getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(Date dataHora) {
+    public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
     }
 
@@ -70,7 +71,7 @@ public class Consulta {
 
     }
 
-    public Consulta(Paciente paciente, Medico medico, Date dataHora, String local, String status, String prescriacao,
+    public Consulta(Paciente paciente, Medico medico, LocalDateTime dataHora, String local, String status, String prescriacao,
             String diagnostico) {
         this.paciente = paciente;
         this.medico = medico;
