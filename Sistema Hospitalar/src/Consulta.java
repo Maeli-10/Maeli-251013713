@@ -82,7 +82,7 @@ public class Consulta {
         this.diagnostico = diagnostico;
     }
 
-//ver se tem consulta marcada, se tiver ele cancela
+// vê se tem consulta marcada, se tiver ele cancela
 public void cancelarConsulta(){
     if (!"Agendada".equals(this.status)){
         System.out.println("Consulta não está marcada, então não pode ser cancelada" );

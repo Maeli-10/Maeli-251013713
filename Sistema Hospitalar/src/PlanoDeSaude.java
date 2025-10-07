@@ -38,7 +38,7 @@ public class PlanoDeSaude {
         this.descricao = descricao;
         this.internacaoEspecial = internacaoEspecial;
     }
-
+// vê se o paciente tem mais de 60 anos e aplica o desconto 
     public double aplicarDesconto(double custo_original, Paciente paciente) {
         double desconto_ = this.desconto;
         if (paciente.getIdade() >= 60) {
