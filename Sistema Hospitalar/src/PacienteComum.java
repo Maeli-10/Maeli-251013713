@@ -26,7 +26,7 @@ public class PacienteComum extends Paciente{
 
     @Override
     public String toCsvString() {
-       return getNome() + "," + getCpf() + "," + getIdade() + ",comum," + getForma_Pagamento();
+       return getNome() + "," + getCpf() + "," + getIdade() + ", COMUM," + getForma_Pagamento();
 
     }
     

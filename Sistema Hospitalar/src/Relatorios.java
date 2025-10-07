@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Relatorios {
     private List<Paciente> pacienteCdastrado;
     private List<Consulta> consulta;
-    private List<Internacao> Internacao;
+    private List<Internacao> internacao;
     private List<Medico> medicos_Cadastrados;
 
     public List<Paciente> getPacienteCdastrado() {
@@ -27,18 +27,18 @@ public class Relatorios {
     }
 
     public List<Internacao> getInternacao() {
-        return Internacao;
+        return internacao;
     }
 
     public void setInternacao(List<Internacao> internacao) {
-        Internacao = internacao;
+        this.internacao = internacao;
     }
 
-    public List<Medico> getMedico_Castrados(){
+    public List<Medico> getMedico_Cadastrados() {
         return medicos_Cadastrados;
     }
 
-    public void setMedico_Cadastrados(List<Medico> medicos_Cadastrados){
+    public void setMedico_Cadastrados(List<Medico> medicos_Cadastrados) {
         this.medicos_Cadastrados = medicos_Cadastrados;
     }
 
@@ -49,15 +49,16 @@ public class Relatorios {
     public Relatorios(List<Paciente> pacienteCdastrado, List<Consulta> consulta, List<Internacao> internacao) {
         this.pacienteCdastrado = pacienteCdastrado;
         this.consulta = consulta;
-        Internacao = internacao;
+        this.internacao = internacao;
+        this.medicos_Cadastrados = new ArrayList<>();
     }
 
-// mostra os pacientes cadastrados
-    public void gerarRelatorioPaciente(){
+    // mostra os pacientes cadastrados
+    public void gerarRelatorioPaciente() {
         System.out.println("     RELATÓRIO DE PACIENTES CADASTRADOS     ");
-        if (pacienteCdastrado == null || pacienteCdastrado.isEmpty()){ 
+        if (pacienteCdastrado == null || pacienteCdastrado.isEmpty()) {
             System.out.println("nenhum paciente cadastrado no sistema");
-        return;    
+            return;
         }
         for (Paciente p : pacienteCdastrado) {
             System.out.printf("Nome: %s | CPF: %s | Idade: %d\n",
@@ -65,7 +66,7 @@ public class Relatorios {
         }
     }
 
-// mostra as futuras consultas    
+    // mostra as futuras consultas
     public void gerarRelatorioConsultasFuturas() {
         System.out.println("\n     RELATÓRIO DE CONSULTAS FUTURAS     ");
 
@@ -73,6 +74,7 @@ public class Relatorios {
             System.out.println("Nenhuma consulta agendada.");
             return;
         }
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy 'às' HH:mm");
 
         LocalDateTime agora = LocalDateTime.now();
         boolean encontrouConsultaFutura = false;
@@ -80,7 +82,9 @@ public class Relatorios {
         for (Consulta c : consulta) {
             if (c.getDataHora().isAfter(agora)) {
                 System.out.printf("Data: %s | Paciente: %s | Médico: %s\n",
-                        c.getDataHora(), c.getPaciente().getNome(), c.getMedico().getNome());
+                        c.getDataHora().format(formatador),
+                        c.getPaciente().getNome(),
+                        c.getMedico().getNome());
                 encontrouConsultaFutura = true;
             }
         }
@@ -90,7 +94,7 @@ public class Relatorios {
         }
     }
 
-// mostra os medicos cadastrados e seuas consultas realizadas
+    // mostra os medicos cadastrados e seuas consultas realizadas
     public void gerarRelatorioMedicosCadastrados() {
         System.out.println("\n--- RELATÓRIO DE MÉDICOS CADASTRADOS ---");
 
@@ -108,9 +112,10 @@ public class Relatorios {
             List<Consulta> consultasRealizadasDoMedico = new ArrayList<>();
 
             if (this.consulta != null) {
-                // Filtra a lista para pegar apenas as consultas que já aconteceram (data anterior à atual)
+            
                 consultasRealizadasDoMedico = this.consulta.stream()
-                        .filter(c -> c.getMedico().equals(medico) && c.getDataHora().isBefore(LocalDateTime.now()))
+                        .filter(c -> c.getMedico().getCrm().equals(medico.getCrm())
+                                && c.getDataHora().isBefore(LocalDateTime.now()))
                         .collect(Collectors.toList());
             }
 
@@ -129,14 +134,5 @@ public class Relatorios {
             }
         }
     }
-     
-
-
-
-
 
 }
-
- 
-
-

@@ -34,4 +34,10 @@ public class PacienteEspecial extends Paciente {
         return false;
     }
 
+    @Override
+    public String toCsvString() {
+    String nomePlano = (this.getPlanoSaude() != null) ? this.getPlanoSaude().getNome() : "N/A";
+    return getNome() + "," + getCpf() + "," + getIdade() + ",ESPECIAL," + nomePlano;
+}
+
 }

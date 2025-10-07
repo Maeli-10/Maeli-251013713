@@ -44,7 +44,7 @@ public class PlanoDeSaude {
         if (paciente.getIdade() >= 60) {
             desconto_ += 0.10;
         }
-        if (desconto > 1.0) {
+        if (desconto_ > 1.0) {
             desconto_ = 1.0;
         }
         double valor_do_Desconto = custo_original * desconto_;
