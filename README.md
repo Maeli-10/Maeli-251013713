@@ -10,10 +10,10 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Dados do Aluno
 
-- **Nome completo:** [Preencher aqui]
-- **Matrícula:** [Preencher aqui]
-- **Curso:** [Preencher aqui]
-- **Turma:** [Preencher aqui]
+- **Nome completo:** Maeli Silva Sousa
+- **Matrícula:** 251013713
+- **Curso:** Engenharias
+- **Turma:** 
 
 ---
 
@@ -26,7 +26,35 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
    [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
 
 3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
+   / Sistema Hospitalar
+
+      Main.java
+   
+      Paciente.java
+   
+      PacienteComum.java
+   
+      PacienteEspecial.java
+   
+      Medico.java
+   
+      Consulta.java
+   
+      Internacao.java
+   
+      PlanoDeSaude.java
+   
+      Relatorios.java
+   
+      SalvarInformacoes.java
+   
+      consultas.csv
+   
+      medicos.csv
+   
+      pacientes.csv
+   
+      planos.csv  
 
 3. **Versão do JAVA utilizada:**  
    [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
@@ -41,14 +69,18 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Prints da Execução
 
-1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+1. Menu Principal:
+   
+   <img width="230" height="106" alt="Captura de tela 2025-10-08 174325" src="https://github.com/user-attachments/assets/70b5a29a-b884-4ac5-9ac4-5c9c4bcac1ae" />
+
 
 2. Cadastro de Médico:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   <img width="285" height="115" alt="Captura de tela 2025-10-08 175058" src="https://github.com/user-attachments/assets/71523319-8afb-4cf0-9995-74ff4d334708" />
 
-3. Relatório de ?:  
-   ![Inserir Print 3](caminho/do/print3.png)
+
+3. Relatório de Médicos:  
+   <img width="496" height="97" alt="Captura de tela 2025-10-08 175222" src="https://github.com/user-attachments/assets/8b948a3a-de31-409f-a9df-c5765077cfbd" />
+
 
 ---
 
@@ -56,13 +88,13 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Observações (Extras ou Dificuldades)
 
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
+- As dificuldades que encontrei foram devidas ao meu primeiro contato com a linguagem Java, com o editor de texto VS Code e com o Git.
 
 ---
 
 ## Contato
 
-- [Opcional: E-mail pessoal do aluno.]
+- silvamaeli441@gmail.com
 
 ---
 
