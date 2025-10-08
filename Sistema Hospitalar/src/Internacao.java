@@ -108,17 +108,17 @@ public class Internacao {
         this.status = "Finalizado.";
         this.data_Saida = new Date();
         internacaoAtiva.remove(this);
-        System.out.println("Internaçãodo paciente" + this.paciente.getNome() + "Finalizado");
+        System.out.println("Internaçãodo paciente " + this.paciente.getNome() + " Finalizado");
     } 
 //verifica se tem internação ativa, se tiver internação ativa, ele cancela 
     public void cancelar_internacao(){
-        if(!"Internação".equals(this.status)){
+        if(!"Internado".equals(this.status)){
             System.out.println("Esta internação não está ativa.");
             return;
         }
         this.status = "Cancelada";
         internacaoAtiva.remove(this);
-        System.out.println("Internação do paciente" + this.paciente.getNome() + "Cancelada");
+        System.out.println("Internação do paciente " + this.paciente.getNome() + " Cancelada");
     }
 }
 
