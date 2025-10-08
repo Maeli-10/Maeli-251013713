@@ -141,12 +141,12 @@ public class Main{
         
         System.out.println("Consulta cadastrada (agendada) com sucesso!");
     }
-    
+
 //menu de gerenciamento
     private static void menuGerenciar() {
         boolean voltando = false;
         while (!voltando) {
-            System.out.println("\n--- O que você deseja GERENCIAR? ---");
+            System.out.println("\n--- O que você deseja gerenciar? ---");
             System.out.println("1) Finalizar Consulta");
             System.out.println("2) Cancelar Consulta");
             System.out.println("3) Finalizar Internação");
@@ -218,6 +218,49 @@ public class Main{
 
         internacaoParaCancelar.cancelar_internacao();
     }
+
+ //menu de vizualização   
+    private static void menuVisualizar() {
+    boolean voltando = false;
+    while (!voltando) {
+        System.out.println("\n--- O que você deseja ver? ---");
+        System.out.println("1) Listar todos os Pacientes");
+        System.out.println("2) Listar todos os Médicos");
+        System.out.println("3) Gerar Relatórios Completos");
+        System.out.println("0) Voltar");
+        
+        int opcao = lerInt("Escolha uma opção: ");
+        switch (opcao) {
+            case 1:
+                System.out.println("\n--- Lista de Pacientes Cadastrados ---");
+                if (pacientes.isEmpty()) {
+                    System.out.println("Nenhum paciente cadastrado.");
+                } else {
+                    pacientes.forEach(p -> System.out.println("- " + p.getNome() + " (CPF: " + p.getCpf() + ")"));
+                }
+                lerString("Pressione Enter para continuar...");
+                break;
+            case 2:
+                System.out.println("\n--- Lista de Médicos Cadastrados ---");
+                if (medicos.isEmpty()) {
+                    System.out.println("Nenhum médico cadastrado.");
+                } else {
+                    medicos.forEach(m -> System.out.println("- Dr(a). " + m.getNome() + " (CRM: " + m.getCrm() + ", " + m.getEspecialidade() + ")"));
+                }
+                lerString("Pressione Enter para continuar...");
+                break;
+            case 3:
+                gerarRelatoriosCompletos();
+                break;
+            case 0:
+                voltando = true;
+                break;
+            default:
+                System.out.println("Opção inválida.");
+        }
+    }
+}
+
 
 //metodos auxiliares
     private static int lerInt(String prompt) {
@@ -318,6 +361,22 @@ public class Main{
         System.out.println("Internação do paciente " + paciente.getNome() + " iniciada com sucesso!");
     }
     
+    private static void gerarRelatoriosCompletos() {
+        Relatorios relatorios = new Relatorios();
+ 
+        relatorios.setPacienteCdastrado(pacientes);
+        relatorios.setMedico_Cadastrados(medicos);
+        relatorios.setConsulta(consultas);
+        
+        System.out.println("\n--- Geração de Relatórios ---");
+    
+        relatorios.gerarRelatorioPaciente();
+        relatorios.gerarRelatorioMedicosCadastrados();
+        relatorios.gerarRelatorioConsultasFuturas();
+        
+        lerString("\nPressione Enter para voltar...");
+    }
+
 }    
         
     
