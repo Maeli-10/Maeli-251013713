@@ -8,7 +8,7 @@ public class Consulta {
     private LocalDateTime dataHora;
     private String local;
     private String status;
-    private String prescriacao;
+    private String prescricao;
     private String diagnostico;
 
     public Paciente getPaciente() {
@@ -51,12 +51,12 @@ public class Consulta {
         this.status = status;
     }
 
-    public String getPrescriacao() {
-        return prescriacao;
+    public String getPrescricao() {
+        return prescricao;
     }
 
-    public void setPrescriacao(String prescriacao) {
-        this.prescriacao = prescriacao;
+    public void setPrescricao(String prescriacao) {
+        this.prescricao = prescriacao;
     }
 
     public String getDiagnostico() {
@@ -78,7 +78,7 @@ public class Consulta {
         this.dataHora = dataHora;
         this.local = local;
         this.status = status;
-        this.prescriacao = prescriacao;
+        this.prescricao = prescriacao;
         this.diagnostico = diagnostico;
     }
 
