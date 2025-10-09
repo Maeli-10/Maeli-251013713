@@ -20,10 +20,10 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+   Na pasta de diretório src em Sistema Hospitalar digite o script `javac Main.java`
 
 2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+   Na pasta de diretório src em Sistema Hospitalar digite o script `java Main`
 
 3. **Estrutura de Pastas:**  
    / Sistema Hospitalar
@@ -57,13 +57,13 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
       planos.csv  
 
 3. **Versão do JAVA utilizada:**  
-   [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
+   versão utilizada no projeto. `java 21`
 
 ---
 
 ## Vídeo de Demonstração
 
-- [Inserir o link para o vídeo no YouTube/Drive aqui]
+- https://youtu.be/Vo9a3L6r9nU?si=9LljhcOaRuFs3Lz5 
 
 ---
 
@@ -88,7 +88,7 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Observações (Extras ou Dificuldades)
 
-- As dificuldades que encontrei foram devidas ao meu primeiro contato com a linguagem Java, com o editor de texto VS Code e com o Git.
+- As dificuldades que encontrei foram devidas ao meu primeiro contato com a linguagem Java, com o editor de texto VS Code e com o Git, outra dificultade foi pensar e criar os metodos , fico feliz de ter feito pois, aprendi muito e foi um rico inicio
 
 ---
 
